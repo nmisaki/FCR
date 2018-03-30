@@ -51,7 +51,7 @@ class BaseDeviceDB(PeriodicServiceTask):
         self._data_valid = True
 
     async def _fetch_devices(self, name_filter=None, hostname=None):
-        devices = await self._fetch_device_data(name_filter, hostname)
+        devices = await self._fetch_device_data(name_filter)
         for d in devices:
             self._devices[d.hostname] = d
             if d.alias:
